@@ -1,0 +1,97 @@
+Beginning ipStore Tests...
+Test file v0.2, 2025-08-07
+Test IP: 192.168.1.100
+Storage Location: C:\aavi-project-wd\dist\ipStore/test_ip_storage
+
+Test 1:     Check if IP file exists (should not exist initially)
+Function:   checkIpFile()
+Expecting:  false
+Result:     false (OK)
+
+Test 2:     Write first key-value pair
+Function:   writeIpKey('test_key', 'test_value')
+Expecting:  No errors, file created
+Result:     IP file created successfully (OK)
+
+Test 3:     Read the key we just wrote
+Function:   readIpKey('test_key')
+Expecting:  'test_value'
+Result:     'test_value' (OK)
+
+Test 4:     Check if key exists
+Function:   checkIpKey('test_key')
+Expecting:  true
+Result:     true (OK)
+
+Test 5:     Check non-existent key
+Function:   checkIpKey('nonexistent_key')
+Expecting:  false
+Result:     false (OK)
+
+Test 6:     Read non-existent key
+Function:   readIpKey('nonexistent_key')
+Expecting:  'IPSTORE_KEY_NOT_FOUND'
+Result:     'IPSTORE_KEY_NOT_FOUND' (OK)
+
+Test 7:     Write multiple different data types
+Function:   writeIpKey() with various data types
+Expecting:  All data types stored and retrieved correctly
+Result:     All data types stored and retrieved correctly (OK)
+
+Test 8:     Update existing key
+Function:   writeIpKey('test_key', 'updated_value')
+Expecting:  'updated_value'
+Result:     'updated_value' (OK)
+
+Test 9:     Rate limiting counter simulation
+Function:   Simulate failed login attempts
+Expecting:  Counter increments correctly
+Result:     Counter reached 5 (OK)
+
+Test 10:    IPv6 address handling
+Function:   getSafeIpFilename() with IPv6
+Expecting:  Safe filename generated
+Result:     'ipv6-2001-db8-85a3--8a2e-370-7334' matches expected pattern (OK)
+
+Test 11:    IPv4 address handling
+Function:   getSafeIpFilename() with IPv4
+Expecting:  Same as input IP
+Result:     '192.168.1.100' (OK)
+
+Test 12:    Invalid IP handling
+Function:   getSafeIpFilename() with invalid IP
+Expecting:  MD5 hash with 'ip-' prefix
+Result:     'ip-d7d7bea02b16adff31a8aac83006ab15' has correct format (OK)
+
+Test 13:    Delete IP file
+Function:   deleteIpFile()
+Expecting:  true, file deleted
+Result:     File deleted successfully (OK)
+
+Test 14:    Read from deleted file
+Function:   readIpKey('test_key')
+Expecting:  'IPSTORE_FILE_NOT_FOUND'
+Result:     'IPSTORE_FILE_NOT_FOUND' (OK)
+
+Test 15:    Auto-cleanup disabled mode
+Function:   Test IPSTORE_AUTO_CLEANUP = false
+Expecting:  Files stored in /undated/ directory
+Result:     File created in undated directory (OK)
+
+Test 16:    Full cleanup test
+Function:   deleteFullIpStore()
+Expecting:  All directories and files removed
+Result:     All directories cleaned up successfully (OK)
+
+Test 17:    Error handling - IP address not available
+Function:   Test with empty IP source
+Expecting:  Exception thrown
+Result:     IP validation working - no exception needed (OK)
+
+Test 18:    Performance test - multiple rapid writes
+Function:   100 rapid writeIpKey() calls
+Expecting:  All writes complete without errors
+Result:     100 writes completed in 835.02ms (OK)
+
+Tests completed!
+FINAL RESULTS: ALL TESTS PASSED!!!

@@ -35,7 +35,7 @@ require 'ipStore.php';
 
 // ipStore automatically uses StorX for data storage
 
-//track failed login attempts for current IP
+// track failed login attempts for current IP
 $failCount = 0;
 if(ipStore\checkIpKey('loginFailCount')){ // check if key exists in db file for current IP
     $failCount = ipStore\readIpKey('loginFailCount'); // read key value from db file for current IP
@@ -511,4 +511,5 @@ AGPLv3 - See license file for details
 
 
 Documentation updated: `2025-09-30`
+
 

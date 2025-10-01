@@ -20,8 +20,6 @@ ipStore is a lightweight PHP library for storing and retrieving data on a per-IP
 
 ## Usage
 
-> **See how ipStore works together with StorX for reliable IP-based storage!**
-
 The easiest way to understand what this library does is to see it in action:
 
 ```php
@@ -510,5 +508,6 @@ AGPLv3 - See license file for details
 @aaviator42
 
 ----
+
 
 Documentation updated: `2025-09-30`

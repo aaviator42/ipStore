@@ -73,12 +73,12 @@ ipStore\writeIpKey('userData', $userData);
 
 ## Installation
 
-1. Ensure StorX library is available:  
+1. Ensure [StorX](https://github.com/aaviator42/StorX) library is available:  
 ```php
 require_once 'lib/StorX.php';
 ```
 
-2. Include the library in your project:  
+2. Include the ipStore library in your project:  
 ```php
 require_once 'lib/ipStore.php';
 ```
@@ -511,5 +511,6 @@ AGPLv3 - See license file for details
 
 
 Documentation updated: `2025-09-30`
+
 
 

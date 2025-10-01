@@ -24,16 +24,16 @@ The easiest way to understand what this library does is to see it in action:
 
 ```php
 
-//ipStore example
+// ipStore example
 
 <?php
 
-//include the StorX library first
+// include the StorX library first
 require 'StorX.php';
-//then include the ipStore library  
+// then include the ipStore library  
 require 'ipStore.php';
 
-//ipStore automatically uses StorX for data storage
+// ipStore automatically uses StorX for data storage
 
 //track failed login attempts for current IP
 $failCount = 0;
@@ -41,27 +41,27 @@ if(ipStore\checkIpKey('loginFailCount')){ // check if key exists in db file for 
     $failCount = ipStore\readIpKey('loginFailCount'); // read key value from db file for current IP
 }
 
-//increment fail count
+// increment fail count
 $failCount++;
 ipStore\writeIpKey('loginFailCount', $failCount); // write key to db file for current IP
 
-//check if IP should be blocked
+// check if IP should be blocked
 if($failCount > 5){
     ipStore\writeIpKey('blocked', true);
     die('Too many failed attempts');
 }
 
-//track user preferences by IP
+// track user preferences by IP
 ipStore\writeIpKey('theme', 'dark');
 ipStore\writeIpKey('language', 'en');
 
-//read back preferences
+// read back preferences
 $userTheme = ipStore\readIpKey('theme'); //returns 'dark'
 $userLang = ipStore\readIpKey('language'); //returns 'en'
 
 echo "User theme: $userTheme, Language: $userLang";
 
-//store complex data like arrays
+// store complex data like arrays
 $userData = [
     'visits' => 10,
     'lastSeen' => time(),
@@ -511,3 +511,4 @@ AGPLv3 - See license file for details
 
 
 Documentation updated: `2025-09-30`
+
